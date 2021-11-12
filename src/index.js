@@ -1,7 +1,8 @@
 import ReactDOM from "react-dom";
+import { Home } from "./pages/Home";
 
 const Index = () => {
-  return <div>DevInMMO!</div>;
+  return <Home />;
 };
 
 ReactDOM.render(<Index />, document.getElementById("root"));
