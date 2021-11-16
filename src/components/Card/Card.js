@@ -23,7 +23,7 @@ export const Card = ({title, platform, description, thumbnail}) => {
       <StyledText>
         {description.length > 130 ? description.substring(0, 127) + "..." : description}
       </StyledText>
-      <Button buttonText="VER MAIS" />
+      <Button buttonText="VER MAIS" click="/" />
     </StyledContainer>
   );
 };

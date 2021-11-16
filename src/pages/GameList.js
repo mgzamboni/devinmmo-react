@@ -1,6 +1,8 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Card } from "../components/Card/Card";
+import { Header } from "../components/Header/Header";
+import { SearchBar } from "../components/SearchBar/SearchBar";
 import { StyledGameList } from "./GameList.styles";
 
 export const GameList = () => {
@@ -26,20 +28,27 @@ export const GameList = () => {
   }, []);
   console.log(games[0]);
 
+  const gameListEmpty = games.length === 0;
+
   return (
-    <StyledGameList>
-      {games.length > 0 ? (
-        games.map((game) => (
-          <Card
-            title={game.title}
-            plataform={game.plataform}
-            description={game.short_description}
-            thumbnail={game.thumbnail}
-          />
-        ))
-      ) : (
-        <p>Não há cards disponíveis!</p>
-      )}
-    </StyledGameList>
+    <>
+      <Header />
+      {!gameListEmpty ? <SearchBar gameList={games} /> : "Empty List"}
+      <StyledGameList>
+        {games.length > 0 ? (
+          games.map((game) => (
+            <Card
+              key={game.id}
+              title={game.title}
+              plataform={game.plataform}
+              description={game.short_description}
+              thumbnail={game.thumbnail}
+            />
+          ))
+        ) : (
+          <p>Não há cards disponíveis!</p>
+        )}
+      </StyledGameList>
+    </>
   );
 };
