@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 /*
-    StyledContainer: fonte, background, width e heighte, flex
+    StyledContainer: fonte, background, width e height, flex
 */
 export const StyledContainer = styled.section`
   background: #fff;
   border: none solid;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 400px;
-  height: 450px;
   display: flex;
   border-radius: 10px;
   flex-direction: column;
@@ -53,16 +52,4 @@ export const StyledText = styled.p`
   height: 25%;
   color: #000;
   margin: 15px 15px;
-`;
-
-export const StyledButton = styled.button`
-  background-color: #fff;
-  padding: 0;
-  border: 1px solid #bbb;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 5px;
-  color: #bbb;
-  width: 100px;
-  height: 55px;
-  margin: 10px;
 `;
