@@ -11,15 +11,17 @@ export const StyledHeader = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 0px 0px 15px 0px;
+  margin-bottom: 1rem;
 `;
 
 export const StyledLogo = styled.h1`
-  margin-left: 16px;
-  font-size: 32px;
+  color: #000;
+  margin-left: 1rem;
+  font-size: 2rem;
 `;
 
 export const StyledMenu = styled.section`
   display: flex;
   flex-direction: row;
+  margin-right: 1rem;
 `;

@@ -13,16 +13,15 @@ export const StyledContainer = styled.section`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  margin-bottom: 1rem;
 `;
 
 export const StyledCardImg = styled.img`
   width: 100%;
-  height: 50%;
 `;
 
 export const StyledCardHeader = styled.div`
   width: 100%;
-  height: 10%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -49,7 +48,6 @@ export const StyledCardPlataform = styled.p`
 
 export const StyledText = styled.p`
   font-size: 20px;
-  height: 25%;
   color: #000;
   margin: 15px 15px;
 `;

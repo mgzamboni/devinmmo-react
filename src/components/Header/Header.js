@@ -7,8 +7,8 @@ export const Header = () => {
     <StyledHeader>
       <StyledLogo>DevInMMO</StyledLogo>
       <StyledMenu>
-        <Button buttonText="News" />
-        <Button buttonText="Game List" />
+        <Button buttonText="NEWS" />
+        <Button buttonText="GAME LIST" />
       </StyledMenu>
     </StyledHeader>
   );
