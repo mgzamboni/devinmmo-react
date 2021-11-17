@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export const SearchBar = ({gameList}) => {
-  const [ searchValue, setSearchValue ] = useState("");
+export const SearchBar = ({ games, setGames }) => {
+  const [searchValue, setSearchValue] = useState("");
+
+  const filterGames = () => {
+    const filteredGames = games.filter((game) => {
+      return game.title.toLowerCase().includes(searchValue.toLowerCase());
+    });
+
+    searchValue !== "" ? setGames(filteredGames) : setGames(games);
+  };
 
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
   };
 
-  const filteredGames = gameList.filter((game) => {
-      return gameList.title.includes(searchValue);
-  })
+  useEffect(() => {
+    filterGames();
+  }, [searchValue]);
 
   return (
     <div>
@@ -18,8 +26,7 @@ export const SearchBar = ({gameList}) => {
         value={searchValue}
         placeholder={"Search games"}
         onChange={handleInputChange}
-      ></input>
-      {console.log(filteredGames)}
+      />
     </div>
   );
 };

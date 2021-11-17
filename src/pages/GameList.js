@@ -7,6 +7,7 @@ import { StyledGameList } from "./GameList.styles";
 
 export const GameList = () => {
   const [games, setGames] = useState([]);
+  const [filteredGames, setFilteredGames] = useState([]);
 
   useEffect(() => {
     const options = {
@@ -21,22 +22,27 @@ export const GameList = () => {
     Axios.request(options)
       .then(function (response) {
         setGames(response.data);
+        setFilteredGames(games);
       })
       .catch(function (error) {
         console.error(error);
       });
   }, []);
-  console.log(games[0]);
-
-  const gameListEmpty = games.length === 0;
 
   return (
     <>
       <Header />
-      {!gameListEmpty ? <SearchBar gameList={games} /> : "Empty List"}
+      {/* <SearchBar onChange={setCount} count={count} />
+      <p>Count: {count}</p> */}
+      {
+        <SearchBar
+          games={games}
+          setGames={setFilteredGames}
+        />
+      }
       <StyledGameList>
-        {games.length > 0 ? (
-          games.map((game) => (
+        {filteredGames.length > 0 ? (
+          filteredGames.map((game) => (
             <Card
               key={game.id}
               title={game.title}
