@@ -7,7 +7,8 @@ export const StyledContainer = styled.section`
   background: #fff;
   border: none solid;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  width: 400px;
+  min-width: 400px;
+  max-width: 400px;
   display: flex;
   border-radius: 10px;
   flex-direction: column;
@@ -17,11 +18,11 @@ export const StyledContainer = styled.section`
 `;
 
 export const StyledCardImg = styled.img`
-  width: 100%;
+  min-width: 100%;
 `;
 
-export const StyledCardHeader = styled.div`
-  width: 100%;
+export const StyledCardHeader = styled.section`
+  min-width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -39,7 +40,8 @@ export const StyledCardTitle = styled.h2`
 export const StyledCardPlataform = styled.p`
   font-size: 12px;
   text-align: center;
-  width: 15%;
+  width: 35%;
+  line-height: 150%;
   color: dodgerblue;
   margin: 0px 15px 0px 0px;
   border: 2px solid dodgerblue;

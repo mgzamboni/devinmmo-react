@@ -1,6 +1,6 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Card } from "../components/Card/Card";
+import { GameCard } from "../components/GameCard/GameCard";
 import { Header } from "../components/Header/Header";
 import { SearchBar } from "../components/SearchBar/SearchBar";
 import { StyledGameList } from "./GameList.styles";
@@ -31,18 +31,19 @@ export const GameList = () => {
   return (
     <>
       <Header />
+      {/* <SearchBar onChange={setCount} count={count} />
+      <p>Count: {count}</p> */}
       {<SearchBar games={games} setGames={setFilteredGames} />}
       <StyledGameList>
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (
-            <Card
+            <GameCard
               key={game.id}
               title={game.title}
-              plataform={game.plataform}
+              platform={game.platform}
               description={game.short_description}
               thumbnail={game.thumbnail}
-            />
-          ))
+            />))
         ) : (
           <p>Não há cards disponíveis!</p>
         )}

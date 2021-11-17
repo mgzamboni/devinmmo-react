@@ -7,9 +7,9 @@ import {
   StyledCardPlataform,
   StyledText,
   StyledCardImg,
-} from "./Card.styles";
+} from "./GameCard.styles";
 
-export const Card = ({title, platform, description, thumbnail}) => {
+export const GameCard = ({title, platform, description, thumbnail}) => {
   return (
     <StyledContainer>
       <StyledCardImg
