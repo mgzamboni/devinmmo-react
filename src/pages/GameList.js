@@ -22,7 +22,6 @@ export const GameList = () => {
     Axios.request(options)
       .then(function (response) {
         setGames(response.data);
-        setFilteredGames(games);
       })
       .catch(function (error) {
         console.error(error);
@@ -32,14 +31,7 @@ export const GameList = () => {
   return (
     <>
       <Header />
-      {/* <SearchBar onChange={setCount} count={count} />
-      <p>Count: {count}</p> */}
-      {
-        <SearchBar
-          games={games}
-          setGames={setFilteredGames}
-        />
-      }
+      {<SearchBar games={games} setGames={setFilteredGames} />}
       <StyledGameList>
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (

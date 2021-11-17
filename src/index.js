@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
+// import { ThemeProvider } from "styled-components";
 import { GameList } from "./pages/GameList";
 import { Home } from "./pages/Home";
 import { NewsList } from "./pages/NewsList";
