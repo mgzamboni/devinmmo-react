@@ -1,19 +1,50 @@
-import React from "react";
-import { Header } from "../components/Header/Header";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Header } from "../components/Header";
 import { NewsCard } from "../components/NewsCard";
+import { StyledNewsList } from "./NewsList.styles";
+import { SearchBar } from "../components/SearchBar"
 
 export const NewsList = () => {
+  const [games, setGames] = useState([]);
+  const [filteredGames, setFilteredGames] = useState([]);
 
-  const title = "Elyon’s Latest Patch Adds New Clan War Map, But The 10-Man Raid’s Gonna Be Late"
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      url: 'https://mmo-games.p.rapidapi.com/latestnews',
+      headers: {
+        'x-rapidapi-host': 'mmo-games.p.rapidapi.com',
+        'x-rapidapi-key': '268cc61283msh211ba6ef01d0beep16cdb6jsna3329cb584ea'
+      }
+    };
 
-  const description = "When a “more suitable version” is ready, it will be made available."
-
-  const img = "https://www.mmobomb.com/file/2021/11/elyon-update-new-clan-war-map-218x150.jpg"
+    axios.request(options)
+      .then(function (response) {
+        setGames(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <div>
       <Header />
-      {/* <NewsCard title={title} description={description} thumbnail={img} /> */}
+      {<SearchBar games={games} setGames={setFilteredGames} />}
+      <StyledNewsList>
+        {filteredGames.length > 0 ? (
+          filteredGames.map((game) => (
+            <NewsCard
+              key={game.id}
+              title={game.title}
+              description={game.short_description}
+              thumbnail={game.thumbnail}
+            />))
+        ) : (
+          <p>Não há cards disponíveis!</p>
+        )}
+      </StyledNewsList>
     </div>
   );
 };

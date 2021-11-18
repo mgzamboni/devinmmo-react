@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "../Button/Button";
 import { StyledButton } from "../Button/Button.styles";
 import {
   StyledCardContent,
@@ -7,11 +6,12 @@ import {
   StyledCardTitle,
   StyledText,
   StyledCardImg,
-  StyledImgContainer,
+  StyledDivider,
 } from "./NewsCard.styles";
 
 export const NewsCard = ({ title, description, thumbnail }) => {
   return (
+      <>
     <StyledContainer>
       <StyledCardImg src={thumbnail} alt={title} />
       <StyledCardContent>
@@ -21,8 +21,10 @@ export const NewsCard = ({ title, description, thumbnail }) => {
             ? description.substring(0, 127) + "..."
             : description}
         </StyledText>
-        <Button buttonText="VER MAIS" click="/" />
+        <StyledButton text={"VER MAIS"}>{"VER NO SITE"}</StyledButton>
       </StyledCardContent>
     </StyledContainer>
+    <StyledDivider />
+    </>
   );
 };

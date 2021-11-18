@@ -1,8 +1,8 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import { GameCard } from "../components/GameCard/GameCard";
-import { Header } from "../components/Header/Header";
-import { SearchBar } from "../components/SearchBar/SearchBar";
+import { GameCard } from "../components/GameCard";
+import { Header } from "../components/Header";
+import { SearchBar } from "../components/SearchBar";
 import { StyledGameList } from "./GameList.styles";
 
 export const GameList = () => {
