@@ -1,4 +1,4 @@
-import Axios from "axios";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { GameCard } from "../components/GameCard";
 import { Header } from "../components/Header";
@@ -19,7 +19,8 @@ export const GameList = () => {
       },
     };
 
-    Axios.request(options)
+    axios
+      .request(options)
       .then(function (response) {
         setGames(response.data);
       })
@@ -31,8 +32,6 @@ export const GameList = () => {
   return (
     <>
       <Header />
-      {/* <SearchBar onChange={setCount} count={count} />
-      <p>Count: {count}</p> */}
       {<SearchBar games={games} setGames={setFilteredGames} />}
       <StyledGameList>
         {filteredGames.length > 0 ? (
@@ -43,7 +42,9 @@ export const GameList = () => {
               platform={game.platform}
               description={game.short_description}
               thumbnail={game.thumbnail}
-            />))
+              gameDetails={game.id}
+            />
+          ))
         ) : (
           <p>Não há cards disponíveis!</p>
         )}

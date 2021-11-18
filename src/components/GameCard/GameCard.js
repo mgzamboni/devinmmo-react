@@ -9,21 +9,26 @@ import {
   StyledCardImg,
 } from "./GameCard.styles";
 
-export const GameCard = ({title, platform, description, thumbnail}) => {
+export const GameCard = ({
+  title,
+  platform,
+  description,
+  thumbnail,
+  gameDetails,
+}) => {
   return (
     <StyledContainer>
-      <StyledCardImg
-        src={thumbnail}
-        alt={title}
-      />
+      <StyledCardImg src={thumbnail} alt={title} />
       <StyledCardHeader>
         <StyledCardTitle>{title}</StyledCardTitle>
         <StyledCardPlataform>{platform}</StyledCardPlataform>
       </StyledCardHeader>
       <StyledText>
-        {description.length > 130 ? description.substring(0, 127) + "..." : description}
+        {description.length > 130
+          ? description.substring(0, 127) + "..."
+          : description}
       </StyledText>
-      <Button buttonText="VER MAIS" click="/" />
+      <Button buttonText="VER MAIS" click={"/games/" + gameDetails} />
     </StyledContainer>
   );
 };
