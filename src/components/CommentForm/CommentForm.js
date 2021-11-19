@@ -2,17 +2,20 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { TextInput } from "../TextInput";
 
-export const CommentForm = ({ gameTitle }) => {
+export const CommentForm = ({ gameTitle, setComments }) => {
   const handleCommentStorage = (valores) => {
-    const comentario = [{ game: gameTitle, likeCount: 0, ...valores }];
+    const comentario = [{ id: 0, game: gameTitle, likeCount: 0, ...valores }];
     const getLocalStorage = JSON.parse(localStorage.getItem("comentarios"));
-    console.log(getLocalStorage);
 
     if (getLocalStorage != null) {
+      comentario[0].id = getLocalStorage.length
       getLocalStorage.push(...comentario);
-      console.log(getLocalStorage);
+      setComments(getLocalStorage);
       localStorage.setItem("comentarios", JSON.stringify(getLocalStorage));
-    } else localStorage.setItem("comentarios", JSON.stringify(comentario));
+    } else {
+      localStorage.setItem("comentarios", JSON.stringify(comentario));
+      setComments(getLocalStorage);
+    }
   };
 
   return (

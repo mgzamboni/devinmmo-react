@@ -6,8 +6,13 @@ import { CommentForm } from "../components/CommentForm/CommentForm";
 import { CommentBox } from "../components/CommentBox/CommentBox";
 
 export const GameDetails = () => {
+  const [comments, setComments] = useState([]);
   const [game, setGame] = useState();
   const { id } = useParams();
+
+  // useEffect(() => {
+  //   console.log("GAME DETAILS: "+comments);
+  // }, [comments]);
 
   useEffect(() => {
     const options = {
@@ -59,8 +64,13 @@ export const GameDetails = () => {
       ) : (
         <p>Info n disponível</p>
       )}
-      {game != null && <CommentForm gameTitle={game.title}></CommentForm>}
-      {game != null && <CommentBox gameTitle={game.title} />}
+      {game != null && (
+        <CommentForm
+          gameTitle={game.title}
+          setComments={setComments}
+        ></CommentForm>
+      )}
+      {game != null && <CommentBox gameTitle={game.title} comments={comments} />}
     </div>
   );
 };
