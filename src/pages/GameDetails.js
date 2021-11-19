@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Header } from "../components/Header";
 import axios from "axios";
+import { CommentForm } from "../components/CommentForm/CommentForm";
+import { CommentBox } from "../components/CommentBox/CommentBox";
 
 export const GameDetails = () => {
   const [game, setGame] = useState();
@@ -36,28 +38,29 @@ export const GameDetails = () => {
       <p>Game Details</p>
       {game != null ? (
         <>
-        <h1>{game.title}</h1>
-        <h2>{game.release_date}</h2>
-        <img src={game.thumbnail} alt={game.title} />
-        <br />
-        <h3>Genero: {game.genre}</h3>
-        <h3>Plataforma: {game.platform}</h3>
-        <br />
-        <p>Descrição: {game.short_description}</p>
-        <br />
-        <section>
-          <p>Sistema Operacional: {game.minimum_system_requirements.os}</p>
-          <p>Processador: {game.minimum_system_requirements.processor}</p>
-          <p>Memória: {game.minimum_system_requirements.memory}</p>
-          <p>Gráficos: {game.minimum_system_requirements.graphics}</p>
-          <p>Espaço em disco: {game.minimum_system_requirements.storage}</p>
-        </section>
-        <p></p>
-
+          <h1>{game.title}</h1>
+          <h2>{game.release_date}</h2>
+          <img src={game.thumbnail} alt={game.title} />
+          <br />
+          <h3>Genero: {game.genre}</h3>
+          <h3>Plataforma: {game.platform}</h3>
+          <br />
+          <p>Descrição: {game.short_description}</p>
+          <br />
+          <section>
+            <p>Sistema Operacional: {game.minimum_system_requirements.os}</p>
+            <p>Processador: {game.minimum_system_requirements.processor}</p>
+            <p>Memória: {game.minimum_system_requirements.memory}</p>
+            <p>Gráficos: {game.minimum_system_requirements.graphics}</p>
+            <p>Espaço em disco: {game.minimum_system_requirements.storage}</p>
+          </section>
+          <p></p>
         </>
       ) : (
         <p>Info n disponível</p>
       )}
+      {game != null && <CommentForm gameTitle={game.title}></CommentForm>}
+      {game != null && <CommentBox gameTitle={game.title} />}
     </div>
   );
 };
