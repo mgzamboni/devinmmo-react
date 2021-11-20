@@ -5,14 +5,12 @@ import axios from "axios";
 import { CommentForm } from "../components/CommentForm";
 import { CommentBox } from "../components/CommentBox";
 import { PicturesSlider } from "../components/PicturesSlider/PicturesSlider";
+import { GameDetailsHeader } from "../components/GameDetailsHeader/GameDetailsHeader";
+
 export const GameDetails = () => {
   const [comments, setComments] = useState([]);
   const [game, setGame] = useState();
   const { id } = useParams();
-
-  // useEffect(() => {
-  //   console.log("GAME DETAILS: "+comments);
-  // }, [comments]);
 
   useEffect(() => {
     const options = {
@@ -35,17 +33,12 @@ export const GameDetails = () => {
       });
   }, [id]);
 
-  // console.log("is there any game? "+game);
-  // console.log(game.minimum_system_requirements)
   return (
     <div>
       <Header />
-      <p>Game Details</p>
       {game != null ? (
         <>
-          <h1>{game.title}</h1>
-          <h2>{game.release_date}</h2>
-          <img src={game.thumbnail} alt={game.title} />
+          <GameDetailsHeader gameTitle={game.title} releaseDate={game.release_date}/>
           <br />
           <PicturesSlider screenshots={game.screenshots} gameTitle={game.title} />
           <h3>Genero: {game.genre}</h3>
