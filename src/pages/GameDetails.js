@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Header } from "../components/Header";
 import axios from "axios";
-import { CommentForm } from "../components/CommentForm/CommentForm";
-import { CommentBox } from "../components/CommentBox/CommentBox";
-
+import { CommentForm } from "../components/CommentForm";
+import { CommentBox } from "../components/CommentBox";
+import { PicturesSlider } from "../components/PicturesSlider/PicturesSlider";
 export const GameDetails = () => {
   const [comments, setComments] = useState([]);
   const [game, setGame] = useState();
@@ -47,10 +47,11 @@ export const GameDetails = () => {
           <h2>{game.release_date}</h2>
           <img src={game.thumbnail} alt={game.title} />
           <br />
+          <PicturesSlider screenshots={game.screenshots} gameTitle={game.title} />
           <h3>Genero: {game.genre}</h3>
           <h3>Plataforma: {game.platform}</h3>
           <br />
-          <p>Descrição: {game.short_description}</p>
+          <p>Descrição: {game.description.replace(/(<([^>]+)>)/gi, "")}</p>
           <br />
           <section>
             <p>Sistema Operacional: {game.minimum_system_requirements.os}</p>

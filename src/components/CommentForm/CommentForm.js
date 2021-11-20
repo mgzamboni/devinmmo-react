@@ -4,10 +4,10 @@ import { TextInput } from "../TextInput";
 import * as Yup from "yup";
 
 export const CommentForm = ({ gameTitle, setComments }) => {
-  const handleCommentStorage = (valores) => {
-    const comentario = [{ id: 0, game: gameTitle, likeCount: 0, ...valores }];
-    const getLocalStorage = JSON.parse(localStorage.getItem("comentarios"));
+  const handleCommentStorage = (values) => {
+    const comentario = [{ id: 0, game: gameTitle, likeCount: 0, ...values }];
 
+    const getLocalStorage = JSON.parse(localStorage.getItem("comentarios"));
     if (getLocalStorage != null) {
       comentario[0].id = getLocalStorage.length;
       getLocalStorage.push(...comentario);
@@ -20,15 +20,11 @@ export const CommentForm = ({ gameTitle, setComments }) => {
   };
 
   return (
-    <>
       <Formik
         validateOnChange={false}
         validateOnBlur={false}
         validationSchema={Yup.object().shape({
-          nome: Yup.string()
-            .min(2, "Nome muito curto! (mín. 2 caracteres)")
-            .max(50, "Nome muito comprido! (máx. 50 caracteres)")
-            .required("Por favor, insira seu nome!"),
+          nome: Yup.string().min(2, "Nome muito curto! (mín. 2 caracteres)").max(50, "Nome muito comprido! (máx. 50 caracteres)").required("Por favor, insira seu nome!"),
           email: Yup.string().email("Email inválido!").required("Por favor, insira seu email!"),
           comentario: Yup.string().required("Por favor, insira seu comentário!"),
         })}
@@ -43,34 +39,16 @@ export const CommentForm = ({ gameTitle, setComments }) => {
           return (
             <Form>
               <Field component={TextInput} name="nome" label="Nome:" />
-              <ErrorMessage
-                name="nome"
-                render={(msg) => <div style={{ color: "red" }}>{msg}</div>}
-              />
+              <ErrorMessage name="nome" render={(msg) => <div style={{ color: "red" }}>{msg}</div>} />
               <Field component={TextInput} name="email" label="Email:" />
-              <ErrorMessage
-                name="email"
-                render={(msg) => <div style={{ color: "red" }}>{msg}</div>}
-              />
-              <Field
-                component={TextInput}
-                TextInput
-                type="textarea"
-                name="comentario"
-                label="Comentário:"
-              />
-              <ErrorMessage
-                name="comentario"
-                render={(msg) => <div style={{ color: "red" }}>{msg}</div>}
-              />
-              <button type="button" onClick={handleSubmit}>
-                Salvar
-              </button>
+              <ErrorMessage name="email" render={(msg) => <div style={{ color: "red" }}>{msg}</div>} />
+              <Field component={TextInput} type="textarea" name="comentario" label="Comentário:" />
+              <ErrorMessage name="comentario" render={(msg) => <div style={{ color: "red" }}>{msg}</div>} />
+              <button type="button" onClick={handleSubmit}>Enviar</button>
             </Form>
           );
         }}
       </Formik>
-    </>
   );
 };
 
