@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-/*
-    StyledContainer: fonte, background, width e height, flex
-*/
 export const StyledContainer = styled.section`
   display: flex;
   flex-direction: row;

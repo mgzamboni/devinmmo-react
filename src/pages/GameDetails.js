@@ -4,8 +4,9 @@ import { Header } from "../components/Header";
 import axios from "axios";
 import { CommentForm } from "../components/CommentForm";
 import { CommentBox } from "../components/CommentBox";
-import { PicturesSlider } from "../components/PicturesSlider/PicturesSlider";
-import { GameDetailsHeader } from "../components/GameDetailsHeader/GameDetailsHeader";
+import { PicturesSlider } from "../components/PicturesSlider";
+import { GameDetailsHeader } from "../components/GameDetailsHeader";
+import { GameDetailsBody } from "../components/GameDetailsBody";
 
 export const GameDetails = () => {
   const [comments, setComments] = useState([]);
@@ -39,13 +40,8 @@ export const GameDetails = () => {
       {game != null ? (
         <>
           <GameDetailsHeader gameTitle={game.title} releaseDate={game.release_date}/>
-          <br />
           <PicturesSlider screenshots={game.screenshots} gameTitle={game.title} />
-          <h3>Genero: {game.genre}</h3>
-          <h3>Plataforma: {game.platform}</h3>
-          <br />
-          <p>Descrição: {game.description.replace(/(<([^>]+)>)/gi, "")}</p>
-          <br />
+          <GameDetailsBody genre={game.genre} platform={game.platform} description={game.description} />
           <section>
             <p>Sistema Operacional: {game.minimum_system_requirements.os}</p>
             <p>Processador: {game.minimum_system_requirements.processor}</p>

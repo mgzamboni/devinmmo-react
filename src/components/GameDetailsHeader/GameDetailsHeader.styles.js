@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledDetailsHeader = styled.div`
-  margin-top: 30px;
+  margin: 15px 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;
