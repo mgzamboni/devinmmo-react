@@ -17,10 +17,13 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledLogo = styled.h1`
+  cursor: pointer;
   color: #000;
   margin-left: 1rem;
   font-size: 2rem;
-  width: 20vw;
+  &:hover {
+    color: rgba(0, 0, 0, 0.4);
+  }
 `;
 
 export const StyledMenu = styled.section`

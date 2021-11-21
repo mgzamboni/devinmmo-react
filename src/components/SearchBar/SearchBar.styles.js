@@ -5,7 +5,7 @@ export const StyledSearchBar = styled.input`
   background: #fff;
   border: none;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  width: 100%;
+  width: 95vw;
   height: 2.5rem;
   display: block;
   border-radius: 10px;

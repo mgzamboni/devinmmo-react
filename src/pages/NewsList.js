@@ -40,6 +40,7 @@ export const NewsList = () => {
               title={game.title}
               description={game.short_description}
               thumbnail={game.thumbnail}
+              articleUrl={game.article_url}
             />))
         ) : (
           <p>Não há cards disponíveis!</p>

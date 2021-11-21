@@ -9,7 +9,8 @@ import {
   StyledDivider,
 } from "./NewsCard.styles";
 
-export const NewsCard = ({ title, description, thumbnail }) => {
+export const NewsCard = ({ title, description, thumbnail, articleUrl }) => {
+  const redirect = (props) => {window.location.href = props}
   return (
       <>
     <StyledContainer>
@@ -21,7 +22,7 @@ export const NewsCard = ({ title, description, thumbnail }) => {
             ? description.substring(0, 127) + "..."
             : description}
         </StyledText>
-        <Button buttonText="VER NO SITE" click={()=>{}} />
+        <Button buttonText="VER NO SITE" click={() => redirect(articleUrl)} />
       </StyledCardContent>
     </StyledContainer>
     <StyledDivider />
