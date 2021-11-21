@@ -6,6 +6,7 @@ export const StyledButton = styled.button`
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 5px;
   color: rgba(0, 0, 0, 0.6);
-  width: 100px;
+  width: 20vw;
+  max-width: 100px;
   height: 2.5rem;
 `;

@@ -2,7 +2,8 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { TextInput } from "../TextInput";
 import * as Yup from "yup";
-import { FormButton, StyledFormBox, StyledFormField, StyledFormTextField, StyledHDescription } from "./CommentForm.styles";
+import { StyledFormBox, StyledFormField, StyledFormTextField, StyledHDescription } from "./CommentForm.styles";
+import { Button } from "../Button";
 // import { Button } from "../Button/Button";
 
 export const CommentForm = ({ gameTitle, setComments }) => {
@@ -56,7 +57,7 @@ export const CommentForm = ({ gameTitle, setComments }) => {
                 <Field component={TextInput} type="textarea" name="comentario" label="" placeholder="Comentário" />
                 <ErrorMessage name="comentario" render={(msg) => <div style={{ color: "red", justifyContent: "center" }}>{msg}</div>} />
               </StyledFormTextField>
-              <FormButton buttonText="ENVIAR" click={handleSubmit} />
+              <Button buttonText="ENVIAR" click={handleSubmit} />
             </Form>
             </StyledFormBox>
           );

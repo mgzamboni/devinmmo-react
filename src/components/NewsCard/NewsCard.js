@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledButton } from "../Button/Button.styles";
+import { Button } from "../Button/Button";
 import {
   StyledCardContent,
   StyledContainer,
@@ -21,7 +21,7 @@ export const NewsCard = ({ title, description, thumbnail }) => {
             ? description.substring(0, 127) + "..."
             : description}
         </StyledText>
-        <StyledButton text={"VER MAIS"}>{"VER NO SITE"}</StyledButton>
+        <Button buttonText="VER NO SITE" click={()=>{}} />
       </StyledCardContent>
     </StyledContainer>
     <StyledDivider />

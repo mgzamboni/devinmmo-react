@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Button } from "../Button/Button";
 
 export const StyledFormBox = styled.div`
   width: 80vw;
@@ -21,10 +20,6 @@ export const StyledFormFields = styled.div`
 export const StyledFormField = styled.div`
   margin-bottom: 15px;
   width: 49%;
-`;
-
-export const FormButton = styled(Button)`
-  margin: 20px 20px;
 `;
 
 export const StyledFormTextField = styled(StyledFormField)`

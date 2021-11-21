@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { Button } from "../Button/Button";
 import {
+  StyledButtonContainer,
   StyledCardHeader,
   StyledContainer,
   StyledCardTitle,
@@ -30,7 +31,9 @@ export const GameCard = ({
           ? description.substring(0, 127) + "..."
           : description}
       </StyledText>
-      <Button buttonText="VER MAIS" click={() => navigate("/games/" + gameDetails)} />
+      <StyledButtonContainer>
+        <Button buttonText="VER MAIS" click={() => navigate("/games/" + gameDetails)} />
+      </StyledButtonContainer>
     </StyledContainer>
   );
 };

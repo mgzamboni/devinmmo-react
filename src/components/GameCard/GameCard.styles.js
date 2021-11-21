@@ -52,4 +52,15 @@ export const StyledText = styled.p`
   font-size: 20px;
   color: #000;
   margin: 15px 15px;
+  height: 7rem;
+`;
+
+export const StyledButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%;
+  height: 3rem;
 `;
