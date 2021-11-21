@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledFormBox = styled.div`
   width: 80vw;
-  margin: 0 auto;
+  margin: 50px auto;
 `;
 
 export const StyledHDescription = styled.h3`

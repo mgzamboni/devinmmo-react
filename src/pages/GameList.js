@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { GameCard } from "../components/GameCard";
 import { Header } from "../components/Header";
 import { SearchBar } from "../components/SearchBar";
-import { StyledGameList } from "./GameList.styles";
+import { StyledGameList } from "../styles/GameList.styles";
 
 export const GameList = () => {
   const [games, setGames] = useState([]);

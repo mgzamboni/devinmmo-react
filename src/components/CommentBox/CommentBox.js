@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { LikeCounter } from "../LikeCounter/LikeCounter";
+import {
+  StyledCommentContainer,
+  StyledCommentContent,
+  StyledUserComment,
+  StyledUserName,
+} from "./CommentBox.styles";
 
 export const CommentBox = ({ gameTitle, comments }) => {
   const [filteredComments, setFilteredComments] = useState([]);
@@ -21,14 +27,13 @@ export const CommentBox = ({ gameTitle, comments }) => {
       {filteredComments != null &&
         (filteredComments.length > 0 ? (
           filteredComments.map((comment) => (
-            <div key={comment.id}>
-              <p>Nome: {comment.nome}</p>
-              <p>Email: {comment.email}</p>
-              <p>Comentario: {comment.comentario}</p>
-              <div>
-                <LikeCounter id={comment.id} likeCount={comment.likeCount} />
-              </div>
-            </div>
+            <StyledCommentContainer key={comment.id}>
+              <StyledCommentContent>
+                <StyledUserName>{comment.nome}</StyledUserName>
+                <StyledUserComment>{comment.comentario}</StyledUserComment>
+              </StyledCommentContent>
+              <LikeCounter id={comment.id} likeCount={comment.likeCount} />
+            </StyledCommentContainer>
           ))
         ) : (
           <p>Nenhum comentário encontrado.</p>

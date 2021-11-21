@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CountButton } from "../CountButton/CountButton";
+import { StyledCounter, StyledLikeCounterContainer } from "./LikeCounter.styles";
 
 export const LikeCounter = ({ id, likeCount }) => {
   const [counter, setCounter] = useState(likeCount);
@@ -11,17 +12,15 @@ export const LikeCounter = ({ id, likeCount }) => {
     localStorage.setItem("comentarios", JSON.stringify(getComments));
   }, [counter, id]);
 
-
-
   return (
-    <div>
-      <p>{counter}</p>
+    <StyledLikeCounterContainer>
       <CountButton incrementBool={true} count={counter} setCount={setCounter} />
+      <StyledCounter count={counter}>{counter}</StyledCounter>
       <CountButton
         incrementBool={false}
         count={counter}
         setCount={setCounter}
       />
-    </div>
+    </StyledLikeCounterContainer>
   );
 };
