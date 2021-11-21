@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LikeCounter } from "../LikeCounter/LikeCounter";
+import { LikeCounter } from "../LikeCounter";
 import {
   StyledCommentContainer,
   StyledCommentContent,

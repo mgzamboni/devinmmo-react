@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CountButton } from "../CountButton/CountButton";
+import { CountButton } from "../CountButton";
 import { StyledCounter, StyledLikeCounterContainer } from "./LikeCounter.styles";
 
 export const LikeCounter = ({ id, likeCount }) => {

@@ -6,7 +6,7 @@ import { CommentBox } from "../components/CommentBox";
 import { PicturesSlider } from "../components/PicturesSlider";
 import { GameDetailsHeader } from "../components/GameDetailsHeader";
 import { GameDetailsBody } from "../components/GameDetailsBody";
-import { GameDetailsSystemReq } from "../components/GameDetailsSystemReq/GameDetailsSystemReq";
+import { GameDetailsSystemReq } from "../components/GameDetailsSystemReq";
 import { getGameData } from "../services/axios-service";
 import { LoadingAnimation } from "../components/LoadingAnimation";
 
@@ -17,13 +17,18 @@ export const GameDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    let mounted = true;
     getGameData("game", id)
-    .then((data) => {
-      setGame(data);
-    })
-    .catch(function (err) {
-      setError(err.response.status);
-    });
+      .then((data) => {
+        if (mounted) {
+          setGame(data);
+        }
+      })
+      .catch(function (err) {
+        setError(err.response.status);
+      });
+
+      return () => (mounted = false);
   }, [id]);
 
   return (

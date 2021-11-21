@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { PropTypes } from "prop-types";
 import { StyledSearchBar } from "./SearchBar.styles";
-import { SearchBarText } from "../SearchBarText/SearchBarText";
+import { SearchBarText } from "../SearchBarText";
 
 export const SearchBar = ({ sourceList, setList, listSize }) => {
   const [searchValue, setSearchValue] = useState("");
