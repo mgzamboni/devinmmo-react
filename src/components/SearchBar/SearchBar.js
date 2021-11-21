@@ -40,7 +40,7 @@ export const SearchBar = ({ sourceList, setList, listSize }) => {
         <SearchBarText
           text={`Os resultados para "${searchValue}" (${listSize})`} />
       ) : (
-        <SearchBarText text={`Nenhum resultado encontrado para "${searchValue}."`} />
+        <SearchBarText text={`Nenhum resultado encontrado para "${searchValue}".`} />
       )}
     </>
   );

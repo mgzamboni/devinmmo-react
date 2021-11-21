@@ -12,19 +12,29 @@ export const NewsList = () => {
   const [filteredGames, setFilteredGames] = useState([]);
 
   useEffect(() => {
+    let mounted = true;
     getDataList("latestnews")
       .then((data) => {
-        setGames(data);
+        if (mounted) {
+          setGames(data);
+        }
       })
       .catch(function (err) {
         setError(err.response.status);
       });
+    return () => (mounted = false);
   }, []);
 
   return (
     <div>
       <Header />
-      {<SearchBar sourceList={games} setList={setFilteredGames} listSize={filteredGames.length} />}
+      {
+        <SearchBar
+          sourceList={games}
+          setList={setFilteredGames}
+          listSize={filteredGames.length}
+        />
+      }
       <StyledNewsList>
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (
@@ -37,7 +47,7 @@ export const NewsList = () => {
             />
           ))
         ) : error === 0 ? (
-          <LoadingAnimation />
+          filteredGames.length > 0 && <LoadingAnimation />
         ) : (
           <p>Desculpe, não foi possível carregar a página!</p>
         )}

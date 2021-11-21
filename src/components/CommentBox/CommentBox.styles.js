@@ -27,3 +27,8 @@ export const StyledEmptyInfo = styled.p`
   height: 5vh;
   margin: auto auto;
 `;
+
+export const StyledUserComment = styled.p`
+word-break: break-all;
+
+`

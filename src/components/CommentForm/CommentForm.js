@@ -57,7 +57,7 @@ export const CommentForm = ({ gameTitle, setComments }) => {
                 <Field component={TextInput} type="textarea" name="comentario" label="" placeholder="Comentário" />
                 <ErrorMessage name="comentario" render={(msg) => <div style={{ color: "red", justifyContent: "center" }}>{msg}</div>} />
               </StyledFormTextField>
-              <Button buttonText="ENVIAR" click={handleSubmit} />
+              <Button buttonText="ENVIAR" click={handleSubmit} type={"submit"} />
             </Form>
             </StyledFormBox>
           );

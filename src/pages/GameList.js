@@ -12,13 +12,17 @@ export const GameList = () => {
   const [filteredGames, setFilteredGames] = useState([]);
 
   useEffect(() => {
+    let mounted = true;
     getDataList("games")
       .then((data) => {
-        setGames(data);
+        if (mounted) {
+          setGames(data);
+        }
       })
       .catch(function (err) {
         setError(err.response.status);
       });
+    return () => (mounted = false);
   }, []);
   return (
     <>
