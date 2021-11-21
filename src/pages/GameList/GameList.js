@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { GameCard } from "../components/GameCard";
-import { Header } from "../components/Header";
-import { LoadingAnimation } from "../components/LoadingAnimation";
-import { SearchBar } from "../components/SearchBar";
-import { getDataList } from "../services/axios-service";
-import { StyledGameList } from "../styles/GameList.styles";
+import { GameCard } from "../../components/GameCard";
+import { Header } from "../../components/Header";
+import { LoadingAnimation } from "../../components/LoadingAnimation";
+import { SearchBar } from "../../components/SearchBar";
+import { getDataList } from "../../services/axios-service";
+import { StyledGameList } from "./GameList.styles";
 
 export const GameList = () => {
   const [games, setGames] = useState([]);

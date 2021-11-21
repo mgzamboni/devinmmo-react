@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Header } from "../components/Header";
-import { CommentForm } from "../components/CommentForm";
-import { CommentBox } from "../components/CommentBox";
-import { PicturesSlider } from "../components/PicturesSlider";
-import { GameDetailsHeader } from "../components/GameDetailsHeader";
-import { GameDetailsBody } from "../components/GameDetailsBody";
-import { GameDetailsSystemReq } from "../components/GameDetailsSystemReq";
-import { getGameData } from "../services/axios-service";
-import { LoadingAnimation } from "../components/LoadingAnimation";
+import { Header } from "../../components/Header";
+import { CommentForm } from "../../components/CommentForm"
+import { CommentBox } from "../../components/CommentBox";
+import { PicturesSlider } from "../../components/PicturesSlider";
+import { GameDetailsHeader } from "../../components/GameDetailsHeader";
+import { GameDetailsBody } from "../../components/GameDetailsBody";
+import { GameDetailsSystemReq } from "../../components/GameDetailsSystemReq";
+import { getGameData } from "../../services/axios-service";
+import { LoadingAnimation } from "../../components/LoadingAnimation";
 
 export const GameDetails = () => {
   const [comments, setComments] = useState([]);

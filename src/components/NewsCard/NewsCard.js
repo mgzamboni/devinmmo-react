@@ -10,7 +10,7 @@ import {
 } from "./NewsCard.styles";
 
 export const NewsCard = ({ title, description, thumbnail, articleUrl }) => {
-  const redirect = (props) => {window.location.href = props}
+  const redirect = (props) => {window.open(props)}
   return (
       <>
     <StyledContainer>

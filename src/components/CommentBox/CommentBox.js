@@ -22,7 +22,6 @@ export const CommentBox = ({ gameTitle, comments }) => {
     );
   }, [comments, gameTitle]);
 
-  //   console.log("Comentarios filtrados! " + filteredComments.length);
   return (
     <>
       {filteredComments != null &&
