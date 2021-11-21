@@ -3,7 +3,7 @@ import { LikeCounter } from "../LikeCounter/LikeCounter";
 import {
   StyledCommentContainer,
   StyledCommentContent,
-  StyledUserComment,
+  StyledEmptyInfo,
   StyledUserName,
 } from "./CommentBox.styles";
 
@@ -30,13 +30,13 @@ export const CommentBox = ({ gameTitle, comments }) => {
             <StyledCommentContainer key={comment.id}>
               <StyledCommentContent>
                 <StyledUserName>{comment.nome}</StyledUserName>
-                <StyledUserComment>{comment.comentario}</StyledUserComment>
+                <p>{comment.comentario}</p>
               </StyledCommentContent>
               <LikeCounter id={comment.id} likeCount={comment.likeCount} />
             </StyledCommentContainer>
           ))
         ) : (
-          <p>Nenhum comentário encontrado.</p>
+          <StyledEmptyInfo>Nenhum comentário encontrado.</StyledEmptyInfo>
         ))}
     </>
   );

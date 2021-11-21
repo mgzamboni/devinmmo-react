@@ -21,4 +21,9 @@ export const StyledUserName = styled.p`
   margin-bottom: 20px;
 `;
 
-export const StyledUserComment = styled.p``;
+export const StyledEmptyInfo = styled.p`
+  font-size: 22px;
+  width: 80vw;
+  height: 5vh;
+  margin: auto auto;
+`;

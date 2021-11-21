@@ -20,11 +20,16 @@ export const GameList = () => {
         setError(err.response.status);
       });
   }, []);
-
   return (
     <>
       <Header />
-      {<SearchBar games={games} setGames={setFilteredGames} />}
+      {
+        <SearchBar
+          sourceList={games}
+          setList={setFilteredGames}
+          listSize={filteredGames.length}
+        />
+      }
       <StyledGameList>
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (
@@ -38,7 +43,7 @@ export const GameList = () => {
             />
           ))
         ) : error === 0 ? (
-          <LoadingAnimation />
+          filteredGames.length > 0 && <LoadingAnimation />
         ) : (
           <p>Desculpe, não foi possível carregar a página!</p>
         )}

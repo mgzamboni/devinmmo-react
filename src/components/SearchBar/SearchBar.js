@@ -1,8 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { PropTypes } from "prop-types";
 import { StyledSearchBar } from "./SearchBar.styles";
+import { SearchBarText } from "../SearchBarText/SearchBarText";
 
-export const SearchBar = ({ games, setGames }) => {
+export const SearchBar = ({ sourceList, setList, listSize }) => {
   const [searchValue, setSearchValue] = useState("");
+  const [searchBool, setSearchBool] = useState(false);
 
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
@@ -10,32 +13,41 @@ export const SearchBar = ({ games, setGames }) => {
 
   const setNewList = useCallback(
     (newList) => {
-      setGames(newList);
+      setList(newList);
     },
-    [setGames]
+    [setList]
   );
 
   useEffect(() => {
-    const filterGames = () => {
-      const filteredGames = games.filter((game) => {
-        return game.title.toLowerCase().includes(searchValue.toLowerCase());
-      });
-      // searchValue !== "" ? setGames(filteredGames) : setGames(games);
-      searchValue !== "" ? setNewList(filteredGames) : setNewList(games);
-    };
-    filterGames();
-  }, [searchValue, games, setNewList]);
+    const filteredGames = sourceList.filter((game) => {
+      return game.title.toLowerCase().includes(searchValue.toLowerCase());
+    });
+    searchValue !== "" ? setNewList(filteredGames) : setNewList(sourceList);
+    searchValue !== "" ? setSearchBool(false) : setSearchBool(true);
+  }, [searchValue, sourceList, setNewList, searchBool]);
 
   return (
     <>
-    
-    <p></p>
       <StyledSearchBar
         type="text"
         value={searchValue}
         placeholder={"Search games"}
         onChange={handleInputChange}
       />
+      {searchBool ? (
+        <SearchBarText text={`Todos os resultado (${listSize})`} />
+      ) : listSize > 0 ? (
+        <SearchBarText
+          text={`Os resultados para "${searchValue}" (${listSize})`} />
+      ) : (
+        <SearchBarText text={`Nenhum resultado encontrado para "${searchValue}."`} />
+      )}
     </>
   );
+};
+
+SearchBar.propTypes = {
+  sourceList: PropTypes.array.isRequired,
+  setList: PropTypes.func.isRequired,
+  listSize: PropTypes.number.isRequired,
 };

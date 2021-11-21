@@ -11,7 +11,7 @@ export const StyledSearchBar = styled.input`
   border-radius: 10px;
   flex-direction: row;
   align-items: center;
-  margin: 1.5rem auto;
+  margin: 1.5rem auto 0px auto;
   padding: 0;
   background-image: url(${procurar});
   background-repeat: no-repeat;

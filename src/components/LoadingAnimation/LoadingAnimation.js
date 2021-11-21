@@ -1,10 +1,10 @@
-import React from 'react'
-import { StyledLoadingDisplay } from './LoadingAnimation.styles'
+import React from "react";
+import { StyledLoadingDisplay, StyledLoadingContainer } from "./LoadingAnimation.styles";
 
 export const LoadingAnimation = () => {
-    return (
-        <div>
-            <StyledLoadingDisplay />
-        </div>
-    )
-}
+  return (
+    <StyledLoadingContainer>
+      <StyledLoadingDisplay />
+    </StyledLoadingContainer>
+  );
+};

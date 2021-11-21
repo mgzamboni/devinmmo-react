@@ -24,7 +24,7 @@ export const NewsList = () => {
   return (
     <div>
       <Header />
-      {<SearchBar games={games} setGames={setFilteredGames} />}
+      {<SearchBar sourceList={games} setList={setFilteredGames} listSize={filteredGames.length} />}
       <StyledNewsList>
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (
