@@ -1,31 +1,23 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { GameCard } from "../components/GameCard";
 import { Header } from "../components/Header";
+import { LoadingAnimation } from "../components/LoadingAnimation";
 import { SearchBar } from "../components/SearchBar";
+import { getDataList } from "../services/axios-service";
 import { StyledGameList } from "../styles/GameList.styles";
 
 export const GameList = () => {
   const [games, setGames] = useState([]);
+  const [error, setError] = useState(0);
   const [filteredGames, setFilteredGames] = useState([]);
 
   useEffect(() => {
-    const options = {
-      method: "GET",
-      url: "https://mmo-games.p.rapidapi.com/games",
-      headers: {
-        "x-rapidapi-host": "mmo-games.p.rapidapi.com",
-        "x-rapidapi-key": "268cc61283msh211ba6ef01d0beep16cdb6jsna3329cb584ea",
-      },
-    };
-
-    axios
-      .request(options)
-      .then(function (response) {
-        setGames(response.data);
+    getDataList("games")
+      .then((data) => {
+        setGames(data);
       })
-      .catch(function (error) {
-        console.error(error);
+      .catch(function (err) {
+        setError(err.response.status);
       });
   }, []);
 
@@ -45,8 +37,10 @@ export const GameList = () => {
               gameDetails={game.id}
             />
           ))
+        ) : error === 0 ? (
+          <LoadingAnimation />
         ) : (
-          <p>Não há cards disponíveis!</p>
+          <p>Desculpe, não foi possível carregar a página!</p>
         )}
       </StyledGameList>
     </>

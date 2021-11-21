@@ -1,30 +1,23 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import { NewsCard } from "../components/NewsCard";
 import { StyledNewsList } from "../styles/NewsList.styles";
-import { SearchBar } from "../components/SearchBar"
+import { SearchBar } from "../components/SearchBar";
+import { getDataList } from "../services/axios-service";
+import { LoadingAnimation } from "../components/LoadingAnimation";
 
 export const NewsList = () => {
   const [games, setGames] = useState([]);
+  const [error, setError] = useState(0);
   const [filteredGames, setFilteredGames] = useState([]);
 
   useEffect(() => {
-    const options = {
-      method: 'GET',
-      url: 'https://mmo-games.p.rapidapi.com/latestnews',
-      headers: {
-        'x-rapidapi-host': 'mmo-games.p.rapidapi.com',
-        'x-rapidapi-key': '268cc61283msh211ba6ef01d0beep16cdb6jsna3329cb584ea'
-      }
-    };
-
-    axios.request(options)
-      .then(function (response) {
-        setGames(response.data);
+    getDataList("latestnews")
+      .then((data) => {
+        setGames(data);
       })
-      .catch(function (error) {
-        console.error(error);
+      .catch(function (err) {
+        setError(err.response.status);
       });
   }, []);
 
@@ -41,9 +34,12 @@ export const NewsList = () => {
               description={game.short_description}
               thumbnail={game.thumbnail}
               articleUrl={game.article_url}
-            />))
+            />
+          ))
+        ) : error === 0 ? (
+          <LoadingAnimation />
         ) : (
-          <p>Não há cards disponíveis!</p>
+          <p>Desculpe, não foi possível carregar a página!</p>
         )}
       </StyledNewsList>
     </div>
