@@ -9,8 +9,8 @@ export const Header = () => {
     <StyledHeader>
       <StyledLogo onClick={() => navigate("/")}>DevInMMO</StyledLogo>
       <StyledMenu>
-        <Button buttonText="NEWS" click="/news" />
-        <Button buttonText="GAME LIST" click="/games" />
+        <Button buttonText="NEWS" click={() => navigate("/news")} />
+        <Button buttonText="GAME LIST" click={() => navigate("/games")} />
       </StyledMenu>
     </StyledHeader>
   );

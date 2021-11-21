@@ -11,6 +11,7 @@ export const PicturesSlider = ({ gameTitle, screenshots }) => {
     autoplay: true,
     indicators: (i) => (
       <img
+        style={{ maxHeight: "10vh", width: "8vw", objectFit: "fill" }}
         key={screenshots[i].id}
         className="indicator"
         src={screenshots[i].image}
@@ -25,17 +26,18 @@ export const PicturesSlider = ({ gameTitle, screenshots }) => {
         {screenshots
           ? screenshots.map((screenshot) => {
               return (
-                  <img
-                    key={gameTitle + screenshot.id}
-                    className="fullsize-indicator"
-                    style={{
-                      height: "auto",
-                      width: "100%",
-                      objectfit: "cover",
-                    }}
-                    src={screenshot.image}
-                    alt={`${gameTitle}-${screenshot.id}`}
-                  />
+                <img
+                  key={gameTitle + screenshot.id}
+                  className="fullsize-indicator"
+                  style={{
+                    maxHeight: "50vh",
+                    width: "100%",
+                    objectfit: "fill",
+                    backgroundColor: "#ccc",
+                  }}
+                  src={screenshot.image}
+                  alt={`${gameTitle}-${screenshot.id}`}
+                />
               );
             })
           : null}

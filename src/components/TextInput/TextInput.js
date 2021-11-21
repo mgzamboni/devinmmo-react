@@ -20,6 +20,7 @@ export const TextInput = (props) => {
         {type === "textarea" ? (
           <StyledTextInput
             as="textarea"
+            style={{width: "100%", height: "20vh"}}
             rows={4}
             id={id ?? name}
             name={name}

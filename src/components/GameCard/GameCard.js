@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { Button } from "../Button/Button";
 import {
   StyledCardHeader,
@@ -16,6 +17,7 @@ export const GameCard = ({
   thumbnail,
   gameDetails,
 }) => {
+  const navigate = useNavigate();
   return (
     <StyledContainer>
       <StyledCardImg src={thumbnail} alt={title} />
@@ -28,7 +30,7 @@ export const GameCard = ({
           ? description.substring(0, 127) + "..."
           : description}
       </StyledText>
-      <Button buttonText="VER MAIS" click={"/games/" + gameDetails} />
+      <Button buttonText="VER MAIS" click={() => navigate("/games/" + gameDetails)} />
     </StyledContainer>
   );
 };

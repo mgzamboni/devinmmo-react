@@ -7,6 +7,7 @@ import { CommentBox } from "../components/CommentBox";
 import { PicturesSlider } from "../components/PicturesSlider";
 import { GameDetailsHeader } from "../components/GameDetailsHeader";
 import { GameDetailsBody } from "../components/GameDetailsBody";
+import { GameDetailsSystemReq } from "../components/GameDetailsSystemReq/GameDetailsSystemReq";
 
 export const GameDetails = () => {
   const [comments, setComments] = useState([]);
@@ -39,28 +40,36 @@ export const GameDetails = () => {
       <Header />
       {game != null ? (
         <>
-          <GameDetailsHeader gameTitle={game.title} releaseDate={game.release_date}/>
-          <PicturesSlider screenshots={game.screenshots} gameTitle={game.title} />
-          <GameDetailsBody genre={game.genre} platform={game.platform} description={game.description} />
-          <section>
-            <p>Sistema Operacional: {game.minimum_system_requirements.os}</p>
-            <p>Processador: {game.minimum_system_requirements.processor}</p>
-            <p>Memória: {game.minimum_system_requirements.memory}</p>
-            <p>Gráficos: {game.minimum_system_requirements.graphics}</p>
-            <p>Espaço em disco: {game.minimum_system_requirements.storage}</p>
-          </section>
-          <p></p>
+          <GameDetailsHeader
+            gameTitle={game.title}
+            releaseDate={game.release_date}
+          />
+          <PicturesSlider
+            screenshots={game.screenshots}
+            gameTitle={game.title}
+          />
+          <br></br>
+          <GameDetailsBody
+            genre={game.genre}
+            platform={game.platform}
+            description={game.description}
+          />
+          <GameDetailsSystemReq
+            os={game.minimum_system_requirements.os}
+            processor={game.minimum_system_requirements.processor}
+            memory={game.minimum_system_requirements.memory}
+            graphics={game.minimum_system_requirements.graphics}
+            storage={game.minimum_system_requirements.storage}
+          />
+          <CommentForm
+            gameTitle={game.title}
+            setComments={setComments}
+          ></CommentForm>
+          <CommentBox gameTitle={game.title} comments={comments} />
         </>
       ) : (
         <p>Info n disponível</p>
       )}
-      {game != null && (
-        <CommentForm
-          gameTitle={game.title}
-          setComments={setComments}
-        ></CommentForm>
-      )}
-      {game != null && <CommentBox gameTitle={game.title} comments={comments} />}
     </div>
   );
 };

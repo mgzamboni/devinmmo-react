@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const StyledInfoSection = styled.div`
-  margin: 35px auto;
+  margin: 5px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50vw;
+  width: 80vw;
 `;
 
 export const StyledInfoTags = styled.div`
@@ -15,10 +15,10 @@ export const StyledInfoTags = styled.div`
 export const StyledInfoTag = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0px 60px 35px 0px;
+  margin: 0px 60px 30px 0px;
 `;
 
-export const StyledHTag = styled.h3`
+export const StyledHTag = styled.h4`
   margin-bottom: 5px; 
 `
 

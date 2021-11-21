@@ -9,6 +9,6 @@ export const StyledDetailsHeader = styled.div`
 `;
 
 export const StyledH2 = styled.h2`
-  width: 50vw;
+  width: 80vw;
   justify-content: left;
 `;

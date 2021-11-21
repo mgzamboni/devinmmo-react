@@ -2,6 +2,8 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { TextInput } from "../TextInput";
 import * as Yup from "yup";
+import { FormButton, StyledFormBox, StyledFormField, StyledFormTextField, StyledHDescription } from "./CommentForm.styles";
+// import { Button } from "../Button/Button";
 
 export const CommentForm = ({ gameTitle, setComments }) => {
   const handleCommentStorage = (values) => {
@@ -37,15 +39,26 @@ export const CommentForm = ({ gameTitle, setComments }) => {
         {(formProps) => {
           const { handleSubmit } = formProps;
           return (
+            <StyledFormBox>
+            <StyledHDescription>Comentários</StyledHDescription>
             <Form>
-              <Field component={TextInput} name="nome" label="Nome:" />
-              <ErrorMessage name="nome" render={(msg) => <div style={{ color: "red" }}>{msg}</div>} />
-              <Field component={TextInput} name="email" label="Email:" />
-              <ErrorMessage name="email" render={(msg) => <div style={{ color: "red" }}>{msg}</div>} />
-              <Field component={TextInput} type="textarea" name="comentario" label="Comentário:" />
-              <ErrorMessage name="comentario" render={(msg) => <div style={{ color: "red" }}>{msg}</div>} />
-              <button type="button" onClick={handleSubmit}>Enviar</button>
+              <div style={{display:"flex", flexDirection: "row", width: "100%", justifyContent:"space-between"}}>
+                <StyledFormField >
+                  <Field component={TextInput} name="nome" label="" placeholder="Nome" />
+                  <ErrorMessage name="nome" render={(msg) => <div style={{ color: "red" }}>{msg}</div>} />
+                </StyledFormField>
+                <StyledFormField >
+                  <Field component={TextInput} name="email" label="" placeholder="E-Mail" />
+                  <ErrorMessage name="email" render={(msg) => <div style={{ color: "red" }}>{msg}</div>} />
+                </StyledFormField>
+              </div>
+              <StyledFormTextField >
+                <Field component={TextInput} type="textarea" name="comentario" label="" placeholder="Comentário" />
+                <ErrorMessage name="comentario" render={(msg) => <div style={{ color: "red", justifyContent: "center" }}>{msg}</div>} />
+              </StyledFormTextField>
+              <FormButton buttonText="ENVIAR" click={handleSubmit} />
             </Form>
+            </StyledFormBox>
           );
         }}
       </Formik>
