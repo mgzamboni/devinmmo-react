@@ -25,3 +25,14 @@ export const StyledFormField = styled.div`
 export const StyledFormTextField = styled(StyledFormField)`
   width: 100%;
 `;
+
+export const StyledUserInfoInput = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+export const StyledErrorMessage = styled.p`
+  color: red;
+`

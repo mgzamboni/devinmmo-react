@@ -11,7 +11,6 @@ export const Home = () => {
   const navigate = useNavigate();
   return (
     <>
-      {/* <Header /> */}
       <LandingPageStyle>
         <StyledHomePageTitle>Seja bem-vindo ao DevInMMO!</StyledHomePageTitle>
         <StyledHomePageText>

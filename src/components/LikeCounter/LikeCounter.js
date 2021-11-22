@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { CountButton } from "../CountButton";
-import { StyledCounter, StyledLikeCounterContainer } from "./LikeCounter.styles";
+import {
+  StyledCounter,
+  StyledLikeCounterContainer,
+} from "./LikeCounter.styles";
 
 export const LikeCounter = ({ id, likeCount }) => {
   const [counter, setCounter] = useState(likeCount);

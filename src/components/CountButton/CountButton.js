@@ -7,8 +7,6 @@ export const CountButton = ({ incrementBool, count, setCount }) => {
   };
 
   return (
-    <>
-      <StyledCountButton onClick={handleClick} incrementBool={incrementBool} />
-    </>
+    <StyledCountButton onClick={handleClick} incrementBool={incrementBool} />
   );
 };

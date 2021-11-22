@@ -1,53 +1,56 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.section`
-  display: flex;
-  flex-direction: row;
+  background: #fff;
+  border: none solid;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  width: 75%;
-  margin: 0px auto;
+  width: 80vw;
+  height: auto;
+  min-width: 800px;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  margin: 1rem auto;
+`;
+
+export const StyledImgContainer = styled.div`
+  display: flex;
+  align-items: baseline;
+  width: 30%;
+  min-width: 300px;
+  max-width: 400px;
+  box-sizing: border-box;
 `;
 
 export const StyledCardImg = styled.img`
-  display: block;
-  height: 300px;
-  object-fit: cover;
-  max-width: 100%;
+  width: 100%;
+  object-fit: fill;
 `;
 
-export const StyledCardContent = styled.section`
+export const StyledCardContent = styled.div`
+  width: 70%;
+  height: 100%;
+  min-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 2rem 3rem;
+  align-items: left;
+  margin: 20px 20px;
 `;
 
 export const StyledCardTitle = styled.h2`
-  text-align: left;
-  width: 100%;
+  margin-bottom: 30px;
 `;
 
 export const StyledText = styled.p`
-  text-align: left;
-  width: 100%;
+  margin-bottom: 30px;
 `;
 
-export const StyledButton = styled.button`
-  background-color: #fff;
-  padding: 0;
-  border: 1px solid #bbb;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 5px;
-  color: #888;
-  width: 100px;
-  height: 2.5rem;
-  margin: 2.5rem auto;
-`;
-
-export const StyledDivider = styled.div `
-  width: 75%;
+export const StyledDivider = styled.div`
+  width: 80vw;
   margin: 1rem auto;
   border-bottom: 3px solid #ccc;
-`
+  min-width: 800px;
+`;

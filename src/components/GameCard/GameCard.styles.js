@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-/*
-    StyledContainer: fonte, background, width e height, flex
-*/
 export const StyledContainer = styled.section`
   background: #fff;
   border: none solid;
@@ -21,7 +18,7 @@ export const StyledCardImg = styled.img`
   min-width: 100%;
 `;
 
-export const StyledCardHeader = styled.section`
+export const StyledCardHeader = styled.div`
   min-width: 100%;
   display: flex;
   flex-direction: row;
